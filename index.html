@@ -6,13 +6,13 @@
 <title>沙漠倾城标签打印官网</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:SimHei,"Microsoft YaHei",sans-serif;font-size:14px;}
-body{background:#d0d0d0;padding:5px 10px 10px 10px;}
+body{background:#d0d0d0;padding:3px 10px 3px 10px;}
 .wrapper{
   width:100%;max-width:500px;margin:0 auto;background:#f8f0f0;
-  padding:6px 12px 12px 12px;
+  padding:3px 12px 3px 12px;
   position:relative;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
-.top-inner-right{position:absolute;top:8px;right:8px;display:flex;gap:5px;z-index:99;}
+.top-inner-right{position:absolute;top:5px;right:8px;display:flex;gap:5px;z-index:99;}
 .top-btn{background:#007bff;color:#fff;font-size:12px;padding:3px 6px;border-radius:3px;cursor:pointer;font-weight:bold;}
 .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:9999;display:none;}
 .modal-box{background:white;width:90%;max-width:450px;padding:15px;border-radius:8px;max-height:80vh;overflow-y:auto;}
@@ -20,26 +20,25 @@ body{background:#d0d0d0;padding:5px 10px 10px 10px;}
 .modal-close{background:#ff4444;color:white;padding:5px;text-align:center;cursor:pointer;margin-top:10px;border-radius:4px;}
 .modal-content a{color:#007bff;text-decoration:none;}
 .label-box{border:1px solid #000;background:#ffffff;
-  margin-top:10px;
+  margin-top:5px;
   margin-bottom:12px;
   line-height:1.6;
   border-radius:2px;
   position:relative;
-  padding:10px 10px 10px 15px; /* 新增：左边距增加5px，解决内容靠边问题 */
+  padding:10px 10px 10px 15px;
 }
-.label-header{text-align:center;font-weight:bold;margin-bottom:5px;min-height:40px;white-space:pre-line;}
-.label-row{display:flex;justify-content:flex-start;border-bottom:1px solid #ccc;padding:4px 0;color:#222;}
+.label-header{text-align:center;font-weight:bold;margin-bottom:5px;min-height:45px; white-space:pre-line; padding-top:5px;}
+.label-row{display:flex;justify-content:flex-start;border-bottom:1px solid #ccc;padding:2px 0;color:#222;}
 .label-row span:first-child{width:70px;}
 .label-row:last-child{border-bottom:none;}
-.controls{width:100%;margin-bottom:12px;}
+.controls{width:100%;margin-bottom:8px;}
 .control-item{display:flex;align-items:center;margin-bottom:6px;height:30px;}
 .control-label{width:100px;height:30px;line-height:30px;text-align:center;background:#e9ecef;border:1px solid #ced4da;font-weight:bold;flex-shrink:0;}
 .control-input{flex:1;height:30px;border:1px solid #ced4da;background:#fff;padding:0 8px;}
 .unit-text{margin-left:5px;}
 .note{text-align:center;font-size:12px;margin:8px 0;color:#007bff;font-weight:bold;}
 .note a{color:#007bff;text-decoration:none;font-weight:bold;}
-/* 按钮布局调整为2列（去掉导出Excel后） */
-.buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%; margin-bottom:6px;}
 .btn{padding:8px 0;text-align:center;border:1px solid #ced4da;background:#ffffff;font-weight:bold;cursor:pointer;border-radius:4px;transition:0.2s;}
 .btn:hover{background:#e9ecef;}
 .excel-area{text-align:center;margin-bottom:10px;}
@@ -86,9 +85,10 @@ body{background:#d0d0d0;padding:5px 10px 10px 10px;}
   </div>
   <div class="excel-area">已自动加载在线产品数据 ✅</div>
   <div class="label-box" id="previewLabel">
+    <!-- 【修改】二维码向上移动5px（top:10px → top:5px），避免遮挡下方横线 -->
     <img src="https://smqcgf.github.io/18962500118/qrcode.png" 
          alt="旭辰纺织官网" 
-         style="position:absolute; top:10px; right:10px; width:80px; height:80px; border:1px solid #eee; background:#fff; padding:2px;" 
+         style="position:absolute; top:5px; right:10px; width:80px; height:80px; border:1px solid #eee; background:#fff; padding:2px;" 
          onerror="this.style.display='none'">
     <div class="label-header" id="labelHeader"></div>
     <div class="label-row"><span>编号：</span><span id="l-code">-</span></div>
@@ -126,9 +126,8 @@ body{background:#d0d0d0;padding:5px 10px 10px 10px;}
     </div>
   </div>
   <div class="buttons">
-    <!-- 去掉导出Excel按钮，保留打印和清空重置 -->
-    <div class="btn" onclick="window.print()">打印</div>
     <div class="btn" onclick="clearAll()">清空重置</div>
+    <div class="btn" onclick="window.print()">打印</div>
   </div>
   
   <div class="footer-row">
