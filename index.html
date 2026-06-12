@@ -8,7 +8,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:SimHei,"Microsoft YaHei",sans-serif;font-size:14px;}
 body{background:#d0d0d0;padding:3px 10px 3px 10px;}
 
-/* ✅ 主容器：由偏粉改为深灰 */
+/* ✅ 主容器：深灰 */
 .wrapper{
   width:100%;max-width:500px;margin:0 auto;background:#d6d6d6;
   padding:3px 12px 3px 12px;
@@ -144,10 +144,10 @@ body{background:#d0d0d0;padding:3px 10px 3px 10px;}
     <div class="btn" onclick="window.print()">打印</div>
   </div>
 
-  <!-- ✅ 新增优惠按钮 -->
+  <!-- ✅ 增加 / 减少 按钮 -->
   <div class="buttons">
-    <div class="btn" onclick="applyDiscount(0.1)">优惠一</div>
-    <div class="btn" onclick="applyDiscount(0.2)">优惠二</div>
+    <div class="btn" onclick="applyDiscount(0.1)">增加</div>
+    <div class="btn" onclick="applyDiscount(-0.1)">减少</div>
   </div>
 
   <div class="footer-row">
@@ -346,7 +346,7 @@ function clearAll(){
   clearAllFields();
 }
 
-/* ✅ 优惠功能 */
+/* ✅ 增加 / 减少（每按一次 ±0.1 元） */
 function applyDiscount(amount) {
   const priceInput = document.getElementById('inputPrice');
   let currentPrice = parseFloat(priceInput.value);
@@ -366,7 +366,7 @@ function applyDiscount(amount) {
 
   if (isNaN(currentPrice)) return;
 
-  const newPrice = Math.max(0, currentPrice - amount);
+  const newPrice = Math.max(0, currentPrice + amount);
   priceInput.value = newPrice.toFixed(2);
   updateLabel();
 }
